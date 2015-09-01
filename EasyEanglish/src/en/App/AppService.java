@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.swing.JFrame;
 
 import en.verify.VerifyWords;
+import en.words.WordModel;
 import en.words.Words;
 
 
@@ -18,7 +19,7 @@ public class AppService {
 	public void startApp(){
 		
 		String path = selectFile();
-		Map<String, String> startMap = words.loadWords(path);
+		Map<String, WordModel> startMap = words.loadWords(path);
 		String end =verWords.checkAnswer(startMap);
 		System.out.println(end);
 	}
