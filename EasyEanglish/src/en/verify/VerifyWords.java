@@ -36,15 +36,15 @@ public class VerifyWords {
 			try {
 								
 				if(goodAnswer.equals(ans) != true){
-					fileInput = new FileInputStream(mp3Patch);
 					System.out.println("Prawidłowa odpowiedz to : " + goodAnswer);
-					badAnswer.put(key, wordsModel);			
+					badAnswer.put(key, wordsModel);	
+					fileInput = new FileInputStream(mp3Patch);			
 					player = new Player(fileInput);
 					player.play();
 				}
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println("Brak pliku dzwiękowegow");
+				//e.printStackTrace();
 			} catch (JavaLayerException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
