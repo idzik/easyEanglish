@@ -2,7 +2,6 @@ package en.words;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 import jxl.Sheet;
@@ -11,10 +10,10 @@ import jxl.read.biff.BiffException;
 
 public class Words {
 	
-	private Map<String, WordModel> wordsMap = new HashMap<String, WordModel>();
+	
 
 	@SuppressWarnings("static-access")
-	public Map<String, WordModel> loadWords(String path){
+	public Map<String, WordModel> loadWords(String path, Map<String, WordModel> wordsMap){
 			
 		Workbook workBook = null;
 		WordModel wordModel = null;

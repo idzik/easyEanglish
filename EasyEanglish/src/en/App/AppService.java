@@ -1,7 +1,9 @@
 package en.App;
 
 import java.awt.FileDialog;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 import javax.swing.JFrame;
 
@@ -15,12 +17,25 @@ public class AppService {
 	Words words = new Words();
 	JFrame a = null;
 	VerifyWords verWords = new VerifyWords();
+	private Map<String, WordModel> wordsMap = new HashMap<String, WordModel>();
+	Scanner sc = new Scanner(System.in);
 	
 	public void startApp(){
 		
 		String path = selectFile();
-		Map<String, WordModel> startMap = words.loadWords(path);
-		String end =verWords.checkAnswer(startMap);
+		Map<String, WordModel> startMap = words.loadWords(path, wordsMap );
+		System.out.println("pierwsza mapa " + startMap.size());
+		System.out.println("Czy dodać kolejną porcje słów ?");
+		String decision = sc.next();
+		while(decision.equals("t")){
+			startMap = words.loadWords(selectFile(), startMap);
+			System.out.println("Czy dodać kolejną porcje słów ?");
+			decision = sc.next();
+		}
+		
+		System.out.println("kolejna mapa " + startMap.size());
+		
+		String end = verWords.checkAnswer(startMap);
 		System.out.println(end);
 	}
 		
@@ -30,9 +45,6 @@ public class AppService {
 	     a.setBounds(20,20,400,500);
 	     a.setVisible(true);
 	     a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	     
-	     
-	     
 
 	}
 	

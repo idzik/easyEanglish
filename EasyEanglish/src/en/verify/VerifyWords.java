@@ -24,10 +24,11 @@ public class VerifyWords {
 		badAnswer = new HashMap<String, WordModel>();		
 		Scanner sc = new Scanner(System.in);
 		WordModel wordsModel = null;
+		int nr = 0;
 		
 		for(String key : mapWords.keySet()){
-			
-			System.out.print(key + " Podaj odpowiedź  ");
+			nr++;
+			System.out.print(nr+" . "+key + " Podaj odpowiedź  ");
 			String ans = sc.nextLine();
 			wordsModel = mapWords.get(key);
 			String goodAnswer = wordsModel.getEnglischWord();
