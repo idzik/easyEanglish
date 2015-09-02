@@ -19,7 +19,7 @@ public class VerifyWords {
 
 	
 	public String checkAnswer(Map<String, WordModel> mapWords){
-		re++;
+		
 		
 		badAnswer = new HashMap<String, WordModel>();		
 		Scanner sc = new Scanner(System.in);
@@ -53,7 +53,8 @@ public class VerifyWords {
 		}
 		
 		if(badAnswer != null && badAnswer.size()>0){
-			System.out.println("Udzieliłeś " + badAnswer.size() + " błędnych odpowiedzi. Popraw się");
+			re++;
+			System.out.println("Udzieliłeś " + badAnswer.size() + " błędnych odpowiedzi. Popraw się --------");
 			checkAnswer(badAnswer);
 		}
 		sc.close();
