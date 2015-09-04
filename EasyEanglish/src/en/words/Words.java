@@ -23,7 +23,7 @@ public class Words {
 			Sheet ark = workBook.getSheet(0);
 							
 			for (int row = 0; row<ark.getRows(); row++){
-				wordModel = new WordModel(ark.getCell(1, row).getContents(), ark.getCell(3, row).getContents());
+				wordModel = new WordModel(ark.getCell(1, row).getContents(), ark.getCell(4, row).getContents());
 				
 				wordsMap.put(ark.getCell(0, row).getContents(), wordModel);
 			}
